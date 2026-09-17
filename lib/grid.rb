@@ -2,7 +2,6 @@ class Grid
     attr_accessor :grid
     def initialize()
         @grid = [nil, nil, nil, nil, nil, nil, nil, nil, nil]
-        puts "Loaded!"
     end
 
     def print_grid()

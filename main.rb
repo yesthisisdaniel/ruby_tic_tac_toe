@@ -1,6 +1,7 @@
 require_relative "lib/grid"
 require_relative "lib/game"
 require_relative "lib/player"
+require "colorize"
 
 def create_player()
     puts "What is your name?"
@@ -9,7 +10,7 @@ def create_player()
 end
 
 def get_player_types()
-    create_player()
+    player1 = create_player()
     puts "Will player 2 be a computer?"
     input = gets.chomp
     
@@ -17,8 +18,17 @@ def get_player_types()
         puts "Player 2 will be the computer."
         player2 = Player.new("computer", "computer")
     else
-        create_player()
+        player2 = create_player()
+
     end
-    return 
+    puts "Welcome, #{player1.name}!".colorize("blue")
+    if input == "yes"
+        puts "You will be facing the computer, good luck!".colorize("green")
+    else
+        puts "Welcome, #{player2.name}!".colorize("green")
+    end
+    return player1, player2
 end
 get_player_types()
+game_grid = Grid.new
+game_grid.print_grid

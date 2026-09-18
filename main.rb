@@ -21,11 +21,11 @@ def get_player_types()
         player2 = create_player()
 
     end
-    puts "Welcome, #{player1.name}!".colorize("blue")
+    puts "Welcome, #{player1.name}!".green
     if input == "yes"
-        puts "You will be facing the computer, good luck!".colorize("green")
+        puts "You will be facing the computer, good luck!".blue
     else
-        puts "Welcome, #{player2.name}!".colorize("green")
+        puts "Welcome, #{player2.name}!".blue
     end
     return player1, player2
 end

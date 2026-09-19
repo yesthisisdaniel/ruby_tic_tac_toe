@@ -9,9 +9,20 @@ def create_player()
     return Player.new("human", name)
 end
 
+def game_greeting(player1, player2)
+    if player1.type == "human"
+        puts "Welcome, #{player1.name}!".green
+    end
+    if player2.type == "computer"
+        puts "You will be facing the computer.".blue
+    elsif player2.type == "human"
+        puts "Welcome, #{player2.name}!".blue
+    end 
+end
+
 def get_player_types()
     player1 = create_player()
-    puts "Will player 2 be a computer?"
+    puts "Will player 2 be a computer?" 
     input = gets.chomp
     
     if input == "yes"
@@ -19,16 +30,11 @@ def get_player_types()
         player2 = Player.new("computer", "computer")
     else
         player2 = create_player()
-
     end
-    puts "Welcome, #{player1.name}!".green
-    if input == "yes"
-        puts "You will be facing the computer, good luck!".blue
-    else
-        puts "Welcome, #{player2.name}!".blue
-    end
+    game_greeting(player1, player2)
     return player1, player2
 end
 get_player_types()
 game_grid = Grid.new
 game_grid.print_grid
+

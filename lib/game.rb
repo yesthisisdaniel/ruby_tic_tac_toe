@@ -6,5 +6,9 @@ class Game
     end
 
     def play_game()
+    end
+
+    def who_goes_first()
+    end
 
 end

@@ -34,7 +34,10 @@ def get_player_types()
     game_greeting(player1, player2)
     return player1, player2
 end
-get_player_types()
+
+player1, player2 = get_player_types()
 game_grid = Grid.new
-game_grid.print_grid
+new_game = Game.new(player1, player2, game_grid)
+new_game.get_starting_player()
+game_grid.print_grid()
 

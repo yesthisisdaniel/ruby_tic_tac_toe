@@ -4,9 +4,9 @@ class Grid
     attr_accessor :grid, :new_grid, :win_cons
     def initialize()
         @grid = [nil, nil, nil, nil, nil, nil, nil, nil, nil]
+        win_cons =  [[1, 2, 3], [1, 5, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [4, 5, 6], [7, 8, 9], [3, 5, 7]]
     end
 
-    @win_cons =  [[1, 2, 3], [1, 5, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [4, 5, 6], [7, 8, 9], [3, 5, 7]]
 
     def print_grid()
         @new_grid = @grid.each_slice(3).to_a.map { |row| row.map { |cell| cell.to_s.center(3) }.join(" | ").magenta }

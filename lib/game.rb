@@ -9,6 +9,7 @@ class Game
     end
 
     def play_game()
+        puts "Your move, #{@current_player}."
     end
 
    def get_starting_player()
@@ -16,8 +17,10 @@ class Game
 
     if number == 1
         puts "#{@player1.name} will go first."
+        @current_player = @player1.name
     else
         puts "#{@player2.name} will go first."
+        @current_player = @player2.name
     end
     end
 

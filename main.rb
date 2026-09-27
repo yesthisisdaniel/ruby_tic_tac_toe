@@ -40,4 +40,5 @@ game_grid = Grid.new
 new_game = Game.new(player1, player2, game_grid)
 new_game.get_starting_player()
 game_grid.print_grid()
+new_game.play_game()
 

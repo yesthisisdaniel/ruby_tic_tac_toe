@@ -9,7 +9,12 @@ class Game
     end
 
     def play_game()
-        puts "Your move, #{@current_player}."
+        loop do
+            puts "Your move, #{@current_player}."
+            if @grid.winner?()
+                break
+            end
+        end
     end
 
    def get_starting_player()

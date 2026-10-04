@@ -23,7 +23,7 @@ end
 def get_player_types()
     player1 = create_player()
     puts "Will player 2 be a computer?" 
-    input = gets.chomp
+    input = gets.chomp.downcase
     
     if input == "yes"
         puts "Player 2 will be the computer."

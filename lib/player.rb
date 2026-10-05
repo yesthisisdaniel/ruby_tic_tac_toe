@@ -5,6 +5,3 @@ class Player
         @type = type_of_player
     end
 end
-
-get_player_marks()
-    

@@ -11,9 +11,9 @@ class Game
     def play_game()
         loop do
             puts "Your move, #{@current_player}."
-            if @grid.winner?()
-                break
-            end
+            # if @grid.winner?()
+            #     break
+            # end
         end
     end
 
@@ -27,6 +27,6 @@ class Game
         puts "#{@player2.name} will go first."
         @current_player = @player2.name
     end
-    end
+   end
 
 end

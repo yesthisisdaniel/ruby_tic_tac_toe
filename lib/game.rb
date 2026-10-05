@@ -11,9 +11,9 @@ class Game
     def play_game()
         loop do
             puts "Your move, #{@current_player}."
-            # if @grid.winner?()
-            #     break
-            # end
+            if @grid.winner?()
+                break
+            end
         end
     end
 
@@ -28,5 +28,16 @@ class Game
         @current_player = @player2.name
     end
    end
+
+   def get_player_marks()
+        puts "#{@current_player}, choose your mark."
+        loop do
+            if gets.chomp.upcase != "X"
+                puts "Invalid input, try again."
+            else
+                @current_player.mark = gets.chomp.upcase
+            end
+        end
+    end
 
 end

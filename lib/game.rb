@@ -16,32 +16,32 @@ class Game
             end
         end
     end
+    
+    def get_starting_player()
+        number = rand(2)
 
-   def get_starting_player()
-    number = rand(2)
-
-    if number == 1
-        puts "#{@player1.name} will go first."
-        @current_player = @player1
-    else
-        puts "#{@player2.name} will go first."
-        @current_player = @player2
+        if number == 1
+            puts "#{@player1.name} will go first."
+            @current_player = @player1
+        else
+            puts "#{@player2.name} will go first."
+            @current_player = @player2
+        end
     end
-   end
 
-   def get_other_player()
+    def get_other_player()
      if @current_player == @player1
         @other_player = @player2
      else
         @other_player = @player1
      end
-   end
+    end
 
-   def assign_marks(player, mark)
+    def assign_marks(player, mark)
      other_mark = mark == "X" ? "O" : "X"
      player.mark = mark
      @other_player.mark = other_mark
-   end
+    end
 
    def get_player_marks()
     get_other_player()
@@ -69,5 +69,5 @@ class Game
                 break
             end
         end
-    end
+   end
 end

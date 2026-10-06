@@ -22,20 +22,21 @@ class Game
 
     if number == 1
         puts "#{@player1.name} will go first."
-        @current_player = @player1.name
+        @current_player = @player1
     else
         puts "#{@player2.name} will go first."
-        @current_player = @player2.name
+        @current_player = @player2
     end
    end
 
    def get_player_marks()
-        puts "#{@current_player}, choose your mark."
+        puts "#{@current_player.name}, choose your mark."
+        inputted_mark = gets.chomp.upcase
         loop do
-            if gets.chomp.upcase != "X"
+            if inputted_mark != "X" || if inputted_mark != "O"
                 puts "Invalid input, try again."
             else
-                @current_player.mark = gets.chomp.upcase
+                @current_player.mark = inputted_mark
             end
         end
     end

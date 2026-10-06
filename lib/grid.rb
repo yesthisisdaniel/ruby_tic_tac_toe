@@ -26,8 +26,7 @@ class Grid
     def winner?()
         @win_cons.any? do |match|
             values = match.map { |index| @grid[index - 1] }
-            if values.uniq.length == 1 && values.uniq.first.nil?
-            end
+            values.uniq.length == 1 && values.uniq.first != nil
         end
     end
 

@@ -41,5 +41,5 @@ new_game = Game.new(player1, player2, game_grid)
 new_game.get_starting_player()
 game_grid.print_grid()
 new_game.get_player_marks()
-# new_game.play_game()
+new_game.play_game()
 

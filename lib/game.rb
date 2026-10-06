@@ -12,12 +12,14 @@ class Game
         loop do
             puts "Your move, #{@current_player.name}."
             input = get_player_input()
-            @grid.update_grid(input, @current_player.mark)
+            # @grid.update_grid(input, @current_player.mark)
             @grid.print_grid()
-            @current_player = @other_player
             if @grid.winner?()
+                puts "#{@current_player} is the winner!!!!".yellow
                 break
             end
+            @current_player = @other_player
+            get_other_player()
         end
     end
 

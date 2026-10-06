@@ -31,9 +31,11 @@ class Game
 
    def get_player_marks()
         puts "#{@current_player.name}, choose your mark."
-        inputted_mark = gets.chomp.upcase
         loop do
+            inputted_mark = gets.chomp.upcase
+            
             if !["X", "O"].include?(inputted_mark)
+                inputted_mark = gets.chomp.upcase
                 puts "Invalid input, try again."
             else
                 @current_player.mark = inputted_mark

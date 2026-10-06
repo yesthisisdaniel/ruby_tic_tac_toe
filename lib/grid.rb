@@ -1,4 +1,5 @@
 require "colorize"
+require "game"
 
 class Grid 
     attr_accessor :grid, :new_grid, :win_cons
@@ -18,7 +19,7 @@ class Grid
         if @grid[index] != nil
             return false
         else
-            @grid[index] = mark
+            @grid[index] = @current_player.mark
             return true
         end
     end

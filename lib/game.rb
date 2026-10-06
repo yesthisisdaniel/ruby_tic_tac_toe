@@ -10,9 +10,11 @@ class Game
 
     def play_game()
         loop do
-            puts "Your move, #{@current_player}."
+            puts "Your move, #{@current_player.name}."
             input = get_player_input()
-            update_grid(input, @current_player.mark)
+            @grid.update_grid(input, @current_player.mark)
+            @grid.print_grid()
+            @current_player = @other_player
             if @grid.winner?()
                 break
             end
@@ -22,17 +24,22 @@ class Game
     def get_player_input()
     #   if @current_player == "computer"
       loop do
-        player_input = gets.chomp
+        player_input = gets.chomp.to_i
+        choices = (1..9)
 
-        if player_input !=[1...9]
+        if !choices.include?(player_input)
             puts "Invalid input, please choose a number that corresponds with the game grid."
+            next
         end
 
-        if @grid[player_input - 1] != nil
-            puts "This spot is taken, try again."
-        else
-            @grid[player_input] = @current_player.mark
+        index = player_input - 1
+
+        if @grid.update_grid(index, @current_player.mark)
+            return player_input
             break
+        else
+            puts "This spot is taken, try again."
+            next
         end
       end
     end

@@ -31,15 +31,16 @@ class Game
 
    def get_other_player()
      if @current_player == @player1
-        other_player = @player2
+        @other_player = @player2
      else
-        other_player = @player1
+        @other_player = @player1
      end
-     return other_player
    end
 
-   def assign_marks(mark)
+   def assign_marks(player, mark)
+     other_mark = mark == "X" ? "O" : "X"
      player.mark = mark
+     @other_player.mark = other_mark
    end
 
    def get_player_marks()
@@ -64,9 +65,8 @@ class Game
                 puts "Invalid input, try again."
             else
                 @current_player.mark = inputted_mark
-                if @current_player == player1
-                    break
-                end
+                assign_marks(@other_player, inputted_mark)
+                break
             end
         end
     end

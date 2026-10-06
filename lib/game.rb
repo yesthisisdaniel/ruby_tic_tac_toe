@@ -33,12 +33,12 @@ class Game
         puts "#{@current_player.name}, choose your mark."
         inputted_mark = gets.chomp.upcase
         loop do
-            if inputted_mark != "X" || if inputted_mark != "O"
+            if !["X", "O"].include?(inputted_mark)
                 puts "Invalid input, try again."
             else
                 @current_player.mark = inputted_mark
+                break
             end
         end
     end
-
 end

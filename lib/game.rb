@@ -29,7 +29,7 @@ class Game
       end
       if @current_player.type == "human"
         number = gets.chomp.to_i
-        (1..9).include?(number) ? number : nil
+        return (1..9).include?(number) ? number : nil
       end
     end
 

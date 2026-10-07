@@ -11,7 +11,7 @@ class Game
     def play_game()
         loop do
             puts "Your move, #{@current_player.name}."
-            input = get_player_input()
+            get_inputs()
             # @grid.update_grid(input, @current_player.mark)
             @grid.print_grid()
             if @grid.winner?()
@@ -28,12 +28,12 @@ class Game
       (1..9).include?(number) ? number : nil
     end
 
-    def get_player_input()
+    def get_inputs()
     #   if @current_player == "computer"
       loop do
-        player_input = get_player_input()
+        player_input = get_valid_number()
 
-        if !choices.include?(player_input)
+        if player_input.nil?
             puts "Invalid input, please choose a number that corresponds with the game grid."
             next
         end
@@ -42,7 +42,6 @@ class Game
 
         if @grid.update_grid(index, @current_player.mark)
             return player_input
-            break
         else
             puts "This spot is taken, try again."
             next

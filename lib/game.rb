@@ -15,7 +15,7 @@ class Game
             # @grid.update_grid(input, @current_player.mark)
             @grid.print_grid()
             if @grid.winner?()
-                puts "#{@current_player} is the winner!!!!".yellow
+                puts "#{@current_player.name} is the winner!!!!".yellow
                 break
             end
             @current_player = @other_player

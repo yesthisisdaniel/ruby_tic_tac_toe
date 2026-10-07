@@ -23,11 +23,15 @@ class Game
         end
     end
 
+    def get_valid_number()
+      number = gets.chomp.to_i
+      (1..9).include?(number) ? number : nil
+    end
+
     def get_player_input()
     #   if @current_player == "computer"
       loop do
-        player_input = gets.chomp.to_i
-        choices = (1..9)
+        player_input = get_player_input()
 
         if !choices.include?(player_input)
             puts "Invalid input, please choose a number that corresponds with the game grid."

@@ -10,9 +10,7 @@ class Game
 
     def play_game()
         loop do
-            if @current_player.type == "human"
-                puts "Your move, #{@current_player.name}."
-            end
+            puts "Your move, #{@current_player.name}."
             get_and_place_move()
             @grid.print_grid()
             if @grid.winner?()

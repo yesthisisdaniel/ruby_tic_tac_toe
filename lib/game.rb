@@ -10,9 +10,10 @@ class Game
 
     def play_game()
         loop do
-            puts "Your move, #{@current_player.name}."
-            get_inputs()
-            # @grid.update_grid(input, @current_player.mark)
+            if @current_player.type == "human"
+                puts "Your move, #{@current_player.name}."
+            end
+            get_and_place_move()
             @grid.print_grid()
             if @grid.winner?()
                 puts "#{@current_player.name} is the winner!!!!".yellow
@@ -24,27 +25,52 @@ class Game
     end
 
     def get_valid_number()
-      number = gets.chomp.to_i
-      (1..9).include?(number) ? number : nil
+      if @current_player.type == "computer"
+        number = rand(1..9).to_i
+        return number
+      end
+      if @current_player.type == "human"
+        number = gets.chomp.to_i
+        (1..9).include?(number) ? number : nil
+      end
     end
 
-    def get_inputs()
-    #   if @current_player == "computer"
-      loop do
-        player_input = get_valid_number()
+    def get_and_place_move()
+      if @current_player.type == "computer"
+        loop do
+          computer_input = get_valid_number()
 
-        if player_input.nil?
-            puts "Invalid input, please choose a number that corresponds with the game grid."
+          if computer_input.nil?
             next
+          end
+
+          index = computer_input - 1
+          
+          if @grid.update_grid(index, @current_player.mark)
+            return computer_input
+          else
+            next
+          end
         end
+      end
 
-        index = player_input - 1
+      if @current_player.type == "human"
+        loop do
+            player_input = get_valid_number()
 
-        if @grid.update_grid(index, @current_player.mark)
-            return player_input
-        else
-            puts "This spot is taken, try again."
+            if player_input.nil?
+                puts "Invalid input, please choose a number that corresponds with the game grid."
+                next
+            end
+
+            index = player_input - 1
+
+            if @grid.update_grid(index, @current_player.mark)
+                return player_input
+            else
+                puts "This spot is taken, try again."
             next
+            end
         end
       end
     end
